@@ -1,14 +1,13 @@
-﻿<Properties StartupConfiguration="{5A1C4C56-0E4E-419F-966C-6A86BB73BA41}|Default">
-  <MonoDevelop.Ide.ItemProperties.Task_2201.2 PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Task 1.2/Program.cs">
+﻿<Properties StartupConfiguration="{3FD116D8-58FF-48A3-BA34-5D3D0443FF62}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Task 1.1/Program.cs">
     <Files>
-      <File FileName="Task 1.2/Program.cs" Line="1" Column="1" />
+      <File FileName="Task 1.1/Program.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Task 1.2">
-            <Node name="Task 1.2" expanded="True">
+          <Node name="Task 1.1" expanded="True">
+            <Node name="Task 1.1" expanded="True">
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
@@ -17,7 +16,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Task_2201.1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
