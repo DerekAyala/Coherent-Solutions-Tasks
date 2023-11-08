@@ -1,0 +1,18 @@
+# Ignorar todos los archivos binarios
+*.[bmp]       # Imágenes
+*.[jpg]       # Imágenes
+*.[jpeg]      # Imágenes
+*.[png]       # Imágenes
+*.[gif]       # Imágenes
+*.[ico]       # Iconos
+*.[pdf]       # Documentos PDF
+*.[exe]       # Ejecutables
+
+# Permitir solo archivos de texto
+!*.cs
+!*.csproj
+!*.sln
+
+# Excluir carpetas bin y obj (comunes en proyectos .NET)
+bin/
+obj/
