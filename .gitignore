@@ -7,6 +7,10 @@
 *.[ico]       # Iconos
 *.[pdf]       # Documentos PDF
 *.[exe]       # Ejecutables
+*.[xml]
+*.[json]
+
+.DS_Store
 
 # Permitir solo archivos de texto
 !*.cs
