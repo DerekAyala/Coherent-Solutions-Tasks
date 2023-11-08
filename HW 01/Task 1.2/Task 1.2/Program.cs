@@ -20,7 +20,6 @@ class Program
             sum += (10 - i) * int.Parse(input[i].ToString());
         }
 
-        int checkDigit = (11 - (sum % 11)) % 11;
-        return checkDigit;
+       return (11 - (sum % 11)) % 11;
     }
 }
