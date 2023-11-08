@@ -24,3 +24,4 @@
 # Excluir carpetas bin y obj (comunes en proyectos .NET)
 bin/
 obj/
+.vs/
