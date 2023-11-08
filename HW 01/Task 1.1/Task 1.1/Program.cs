@@ -4,9 +4,22 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Enter two integers a and b:");
-        int a = int.Parse(Console.ReadLine());
-        int b = int.Parse(Console.ReadLine());
+        int a, b;
+        do
+        {
+            Console.WriteLine("Enter two integers a and b (a < b, both non-negative):");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+
+            if (a < 0 || b < 0)
+            {
+                Console.WriteLine("Both a and b must be non-negative.");
+            }
+            if (a >= b)
+            {
+                Console.WriteLine("b must be greater than a.");
+            }
+        } while (a < 0 || b < 0 || a >= b);
 
         Console.WriteLine($"Numbers in the range from {a} to {b} with exactly two 'A's in their duodecimal representation:");
 
