@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tast 2.2", "Tast 2.2.csproj", "{CEFAC8EA-8157-4E90-A2C3-464994D138EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEFAC8EA-8157-4E90-A2C3-464994D138EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFAC8EA-8157-4E90-A2C3-464994D138EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFAC8EA-8157-4E90-A2C3-464994D138EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFAC8EA-8157-4E90-A2C3-464994D138EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E034A82-3FCB-4B88-B0AC-5E9D2BE10659}
+	EndGlobalSection
+EndGlobal
