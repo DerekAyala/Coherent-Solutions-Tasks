@@ -1,14 +1,14 @@
 ﻿using System;
 namespace task_2._1
 {
-	public class Point
-	{
-		private int[] coordinates = new int[3];
-		private double mass;
+    public class Point
+    {
+        private int[] coordinates = new int[3];
+        private double mass;
 
-		public Point()
-		{
-		}
+        public Point()
+        {
+        }
 
         public Point(int x, int y, int z, double mass)
         {
@@ -19,10 +19,10 @@ namespace task_2._1
         }
 
         public int X
-		{
-			get { return coordinates[0]; }
-			set { coordinates[0] = value; }
-		}
+        {
+            get { return coordinates[0]; }
+            set { coordinates[0] = value; }
+        }
 
         public int Y
         {
@@ -36,11 +36,11 @@ namespace task_2._1
             set { coordinates[2] = value; }
         }
 
-		public double Mass
-		{
-			get { return mass; }
-			set { mass = Math.Max(0, value); }
-		}
+        public double Mass
+        {
+            get { return mass; }
+            set { mass = Math.Max(0, value); }
+        }
 
         public bool IsZero()
         {
