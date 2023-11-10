@@ -1,35 +1,36 @@
-﻿namespace Tast_2._2
+﻿using System.Text;
+
+namespace Tast_2._2
 {
     public class Matrix
     {
-        private int size;
+        private int _size;
         private int[] array;
 
-        public Matrix(params int[] diagonal)
+        public Matrix(int[] diagonal)
         {
             if (diagonal != null)
             {
-                size = diagonal.Length;
-                array = new int[size * size];
-                GenerateMatrix(diagonal);
+                _size = diagonal.Length;
+                array = diagonal.ToArray();
             }
             else
             {
-                size = 0;
+                _size = 0;
                 array = new int[0];
             }
         }
 
         public int Size
         {
-            get { return size; }
+            get { return _size; }
         }
 
         public int this[int i, int j]
         {
             get
             {
-                if (i < 0 || i >= size || j < 0 || j >= size)
+                if (i < 0 || i >= _size || j < 0 || j >= _size)
                 {
                     return 0;
                 }
@@ -41,41 +42,14 @@
             }
         }
 
-        private void GenerateMatrix(int[] diagonal)
-        {
-            int count = 0;
-            int d = 0;
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    if (i == j)
-                    {
-                        array[count] = diagonal[d];
-                        d++;
-                    }
-                    else
-                    {
-                        array[count] = 0;
-                    }
-                    count++;
-                }
-            }
-        }
-
         public int Track()
         {
             int sum = 0;
-            int c = 0;
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < _size; i++)
             {
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < _size; j++)
                 {
-                    if (i == j)
-                    {
-                        sum += array[c];
-                    }
-                    c++;
+                    sum += this[i, j];
                 }
             }
             return sum;
@@ -83,18 +57,16 @@
 
         public override string ToString()
         {
-            String text = $"Matrix (Size: {Size}, Trace: {Track()})\n";
-            int c = 0;
-            for (int i = 0; i < size; i++)
+            StringBuilder text = new StringBuilder($"Matrix (Size: {Size}, Trace: {Track()})\n");
+            for (int i = 0; i < _size; i++)
             {
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < _size; j++)
                 {
-                    text += array[c].ToString() + " ";
-                    c++;
+                    text.Append(this[i, j].ToString()).Append(" ");
                 }
-                text += "\n";
+                text.AppendLine();
             }
-            return text;
+            return text.ToString();
         }
 
         public override bool Equals(object obj)
@@ -104,13 +76,9 @@
                 return false;
             }
             Matrix other = (Matrix)obj;
-            if (Size != other.Size)
+            for (int i = 0; i < _size; i++)
             {
-                return false;
-            }
-            for (int i = 0; i < size * size; i++)
-            {
-                if (array[i] != other.array[i])
+                if (this[i, i] != other[i, i])
                 {
                     return false;
                 }
@@ -119,5 +87,3 @@
         }
     }
 }
-
-
