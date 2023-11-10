@@ -24,3 +24,11 @@
 # Excluir carpetas bin y obj (comunes en proyectos .NET)
 bin/
 obj/
+
+.*/.vs/
+
+HW 02/task 2.1/.vs/
+
+HW 02/Tast 2.2/.vs/
+
+HW 02/Task 2.3/.vs/
