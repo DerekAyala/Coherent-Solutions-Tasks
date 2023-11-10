@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace Task_2._3
 {
     public class PracticalLesson : Lesson, ICloneable

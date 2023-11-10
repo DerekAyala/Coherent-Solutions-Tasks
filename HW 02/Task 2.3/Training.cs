@@ -1,4 +1,4 @@
-﻿namespace Task_2._3
+namespace Task_2._3
 {
     public class Training : ICloneable
     {
