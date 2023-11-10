@@ -1,31 +1,19 @@
 ﻿using System;
 namespace Task_2._3
 {
-	public class PracticalLesson
-	{
-        private String textDescription;
+    public class PracticalLesson : Lesson, ICloneable
+    {
         private String linkTaskCondition;
         private String linkSolution;
-        public PracticalLesson()
-		{
-		}
-
-        public PracticalLesson(String textDescription)
+        public PracticalLesson(String textDescription) : base(textDescription)
         {
-            TextDescription = textDescription;
         }
 
-        public PracticalLesson(String textDescription,String linkTaskCondition, String linkSolution)
+
+        public PracticalLesson(String textDescription, String linkTaskCondition, String linkSolution) : base(textDescription)
         {
-            TextDescription = textDescription;
             LinkSolution = linkSolution;
             LinkTaskCondition = linkTaskCondition;
-        }
-
-        public String TextDescription
-        {
-            get { return textDescription; }
-            set { textDescription = value; }
         }
 
         public String LinkTaskCondition
@@ -38,6 +26,12 @@ namespace Task_2._3
         {
             get { return linkSolution; }
             set { linkSolution = value; }
+        }
+
+        public object Clone()
+        {
+            PracticalLesson clonedLecture = new PracticalLesson(TextDescription, linkTaskCondition, LinkTaskCondition);
+            return clonedLecture;
         }
     }
 }

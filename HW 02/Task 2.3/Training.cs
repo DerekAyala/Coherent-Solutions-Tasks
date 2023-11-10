@@ -1,12 +1,9 @@
-﻿using System;
-using System.Xml.Linq;
-
-namespace Task_2._3
+﻿namespace Task_2._3
 {
-    public class Training
+    public class Training : ICloneable
     {
         private String textDescription;
-        private object[] set = new object[1];
+        private Lesson[] _lessons = new Lesson[1];
 
         public Training()
         {
@@ -23,20 +20,20 @@ namespace Task_2._3
             set { textDescription = value; }
         }
 
-        public void Add(object obj)
+        public void Add(Lesson obj)
         {
-            object[] newSet = new object[set.Length + 1];
-            for (int i = 0; i < set.Length; i++)
+            Lesson[] newLessons = new Lesson[_lessons.Length + 1];
+            for (int i = 0; i < _lessons.Length; i++)
             {
-                newSet[i] = set[i];
+                newLessons[i] = _lessons[i];
             }
-            newSet[set.Length] = obj;
-            set = newSet;
+            newLessons[_lessons.Length] = obj;
+            _lessons = newLessons;
         }
 
         public Boolean IsPractical()
         {
-            foreach (var item in set)
+            foreach (var item in _lessons)
             {
                 if (!(item is PracticalLesson) || item == null)
                 {
@@ -50,16 +47,16 @@ namespace Task_2._3
         {
             Training clonedTraining = new Training();
             clonedTraining.TextDescription = textDescription;
-            clonedTraining.set = new object[this.set.Length];
-            foreach(var item in set)
+            clonedTraining._lessons = new Lesson[this._lessons.Length];
+            foreach (var item in _lessons)
             {
                 if (item is Lecture lecture)
                 {
-                    clonedTraining.Add(new Lecture(lecture.TextDescription, lecture.Topic));
+                    clonedTraining.Add((Lecture)lecture.Clone());
                 }
                 else if (item is PracticalLesson practical)
                 {
-                    clonedTraining.Add(new PracticalLesson(practical.TextDescription, practical.LinkTaskCondition, practical.LinkSolution));
+                    clonedTraining.Add((PracticalLesson)practical.Clone());
                 }
             }
             return clonedTraining;
