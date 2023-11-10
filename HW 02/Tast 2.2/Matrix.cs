@@ -5,19 +5,19 @@ namespace Tast_2._2
     public class Matrix
     {
         private int _size;
-        private int[] array;
+        private int[] _array;
 
         public Matrix(int[] diagonal)
         {
             if (diagonal != null)
             {
                 _size = diagonal.Length;
-                array = diagonal.ToArray();
+                _array = diagonal.ToArray();
             }
             else
             {
                 _size = 0;
-                array = new int[0];
+                _array = new int[0];
             }
         }
 
@@ -36,7 +36,7 @@ namespace Tast_2._2
                 }
                 if (i == j)
                 {
-                    return array[i];
+                    return _array[i];
                 }
                 return 0;
             }
