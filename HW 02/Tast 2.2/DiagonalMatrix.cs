@@ -1,13 +1,14 @@
 ﻿using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Tast_2._2
 {
-    public class Matrix
+    public class DiagonalMatrix
     {
         private int _size;
         private int[] _array;
 
-        public Matrix(int[] diagonal)
+        public DiagonalMatrix(int[] diagonal)
         {
             if (diagonal != null)
             {
@@ -40,6 +41,36 @@ namespace Tast_2._2
                 }
                 return 0;
             }
+            set
+            {
+                if (i == j)
+                {
+                    _array[i] = value;
+                }
+            }
+        }
+
+        public void extendDiagonalMatrix(DiagonalMatrix diagonalMatrix)
+        {
+            int extendedDiagonalMatrixSize = _size + diagonalMatrix._size;
+            _array = new int[extendedDiagonalMatrixSize];
+
+            for (int i = 0; i < extendedDiagonalMatrixSize; i++)
+            {
+                for (int j = 0; j < extendedDiagonalMatrixSize; j++)
+                {
+                    if (i < _size && j < _size)
+                    {
+                        this[i, j] = this[i, j];
+                    }
+                    else
+                    {
+                        this[i, j] = diagonalMatrix[i, j];
+                    }
+                }
+            }
+
+            _size = extendedDiagonalMatrixSize;
         }
 
         public int Track()
@@ -71,11 +102,11 @@ namespace Tast_2._2
 
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
+            if (obj == null || obj is not DiagonalMatrix || this.Size != ((DiagonalMatrix)obj).Size)
             {
                 return false;
             }
-            Matrix other = (Matrix)obj;
+            DiagonalMatrix other = obj as DiagonalMatrix;
             for (int i = 0; i < _size; i++)
             {
                 if (this[i, i] != other[i, i])
