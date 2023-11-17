@@ -23,8 +23,7 @@ namespace Task_2._3
 
         public object Clone()
         {
-            Lecture clonedLecture = new Lecture(Topic, TextDescription);
-            return clonedLecture;
+            return new Lecture(Topic, TextDescription);
         }
     }
 }

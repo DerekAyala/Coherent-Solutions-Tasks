@@ -50,14 +50,7 @@ namespace Task_2._3
             clonedTraining._lessons = new Lesson[this._lessons.Length];
             foreach (var item in _lessons)
             {
-                if (item is Lecture lecture)
-                {
-                    clonedTraining.Add((Lecture)lecture.Clone());
-                }
-                else if (item is PracticalLesson practical)
-                {
-                    clonedTraining.Add((PracticalLesson)practical.Clone());
-                }
+                clonedTraining.Add((Lesson)item.Clone());
             }
             return clonedTraining;
         }
