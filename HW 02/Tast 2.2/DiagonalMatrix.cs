@@ -1,19 +1,19 @@
-﻿using System.Text;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System;
+using System.Text;
 
-namespace Tast_2._2
+namespace Task_2._2
 {
     public class DiagonalMatrix
     {
         private int _size;
         private int[] _array;
 
-        public DiagonalMatrix(int[] diagonal)
+        public DiagonalMatrix(params int[] diagonal)
         {
             if (diagonal != null)
             {
                 _size = diagonal.Length;
-                _array = diagonal.ToArray();
+                _array = diagonal;
             }
             else
             {
@@ -31,46 +31,12 @@ namespace Tast_2._2
         {
             get
             {
-                if (i < 0 || i >= _size || j < 0 || j >= _size)
+                if (i < 0 || i >= _size || j < 0 || j >= _size || i != j)
                 {
                     return 0;
                 }
-                if (i == j)
-                {
-                    return _array[i];
-                }
-                return 0;
+                return _array[i];
             }
-            set
-            {
-                if (i == j)
-                {
-                    _array[i] = value;
-                }
-            }
-        }
-
-        public void extendDiagonalMatrix(DiagonalMatrix diagonalMatrix)
-        {
-            int extendedDiagonalMatrixSize = _size + diagonalMatrix._size;
-            _array = new int[extendedDiagonalMatrixSize];
-
-            for (int i = 0; i < extendedDiagonalMatrixSize; i++)
-            {
-                for (int j = 0; j < extendedDiagonalMatrixSize; j++)
-                {
-                    if (i < _size && j < _size)
-                    {
-                        this[i, j] = this[i, j];
-                    }
-                    else
-                    {
-                        this[i, j] = diagonalMatrix[i, j];
-                    }
-                }
-            }
-
-            _size = extendedDiagonalMatrixSize;
         }
 
         public int Track()
@@ -78,17 +44,14 @@ namespace Tast_2._2
             int sum = 0;
             for (int i = 0; i < _size; i++)
             {
-                for (int j = 0; j < _size; j++)
-                {
-                    sum += this[i, j];
-                }
+                sum += _array[i];
             }
             return sum;
         }
 
         public override string ToString()
         {
-            StringBuilder text = new StringBuilder($"Matrix (Size: {Size}, Trace: {Track()})\n");
+            StringBuilder text = new StringBuilder($"DiagonalMatrix (Size: {Size}, Track: {Track()})\n");
             for (int i = 0; i < _size; i++)
             {
                 for (int j = 0; j < _size; j++)
@@ -106,7 +69,8 @@ namespace Tast_2._2
             {
                 return false;
             }
-            DiagonalMatrix other = obj as DiagonalMatrix;
+
+            DiagonalMatrix other = (DiagonalMatrix)obj;
             for (int i = 0; i < _size; i++)
             {
                 if (this[i, i] != other[i, i])
