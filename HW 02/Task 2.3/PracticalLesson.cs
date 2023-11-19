@@ -1,7 +1,7 @@
 using System;
 namespace Task_2._3
 {
-    public class PracticalLesson : Lesson, ICloneable
+    public class PracticalLesson : Lesson
     {
         private String linkTaskCondition;
         private String linkSolution;
@@ -28,10 +28,9 @@ namespace Task_2._3
             set { linkSolution = value; }
         }
 
-        public object Clone()
+        public override object Clone()
         {
-            PracticalLesson clonedLecture = new PracticalLesson(TextDescription, linkTaskCondition, LinkTaskCondition);
-            return clonedLecture;
+            return new PracticalLesson(TextDescription, linkTaskCondition, LinkTaskCondition);
         }
     }
 }

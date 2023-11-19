@@ -2,7 +2,7 @@
 
 namespace Task_2._3
 {
-    public class Lesson: ICloneable
+    public class Lesson : ICloneable
     {
         private string _textDescription;
 
@@ -17,7 +17,7 @@ namespace Task_2._3
             set { _textDescription = value; }
         }
 
-        public object Clone()
+        public virtual object Clone()
         {
             return new Lesson(TextDescription);
         }

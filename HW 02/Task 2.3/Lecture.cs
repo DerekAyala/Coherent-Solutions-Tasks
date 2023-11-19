@@ -2,7 +2,7 @@ using System;
 
 namespace Task_2._3
 {
-    public class Lecture : Lesson, ICloneable
+    public class Lecture : Lesson
     {
         private String topic;
 
@@ -21,7 +21,7 @@ namespace Task_2._3
             set { topic = value; }
         }
 
-        public object Clone()
+        public override object Clone()
         {
             return new Lecture(Topic, TextDescription);
         }
