@@ -3,34 +3,38 @@ namespace Task_3._1
 {
     public class Queue<T> : IQueue<T>
     {
-        private T[] elements;
-        private int front;
-        private int rear;
+        private T[] _elements;
+        private int _frontIndex;
+        private int _rearIndex;
+        private int _capacity;
 
         public Queue(int capacity)
         {
-            elements = new T[capacity];
-            front = -1;
-            rear = -1;
+            _capacity = capacity;
+            _elements = new T[_capacity];
+
+            // -1 means that the Queue is empty
+            _frontIndex = -1;
+            _rearIndex = -1;
         }
 
         public void Enqueue(T item)
         {
-            if (rear == elements.Length - 1)
+            if (_rearIndex == _capacity - 1)
             {
                 throw new InvalidOperationException("The Queue is full");
             }
 
             if (IsEmpty())
             {
-                front = rear = 0;
+                _frontIndex = _rearIndex = 0;
             }
             else
             {
-                rear++;
+                _rearIndex++;
             }
 
-            elements[rear] = item;
+            _elements[_rearIndex] = item;
         }
 
         public T Dequeue()
@@ -40,15 +44,16 @@ namespace Task_3._1
                 throw new InvalidOperationException("The Queue is empty");
             }
 
-            T item = elements[front];
+            T item = _elements[_frontIndex];
 
-            if (front == rear)
+            if (_frontIndex == _rearIndex)
             {
-                front = rear = -1;
+                // -1 means that the Queue is empty
+                _frontIndex = _rearIndex = -1;
             }
             else
             {
-                front++;
+                _frontIndex++;
             }
 
             return item;
@@ -56,8 +61,7 @@ namespace Task_3._1
 
         public bool IsEmpty()
         {
-            return front == -1;
+            return _frontIndex == -1;
         }
     }
 }
-
