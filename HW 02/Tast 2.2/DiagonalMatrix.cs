@@ -25,6 +25,7 @@ namespace Task_2._2
         public int Size
         {
             get { return _size; }
+            set { _size = value;  }
         }
 
         public int this[int i, int j]
@@ -36,6 +37,13 @@ namespace Task_2._2
                     return 0;
                 }
                 return _array[i];
+            }
+            set
+            {
+                if (i >= 0 && i < _size && j >= 0 && j < _size && i == j)
+                {
+                    _array[i] = value;
+                }
             }
         }
 
