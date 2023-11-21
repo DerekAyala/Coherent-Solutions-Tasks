@@ -39,7 +39,20 @@ namespace Task_4._1
                     return default(T);
 				}
 			}
-		}
+            set
+            {
+                if (i < 0 || j < 0 || i >= Size || j >= Size)
+                {
+                    throw new IndexOutOfRangeException("I or J is out of Range.");
+                }
+                if (i == j)
+                {
+                    T oldValue = _diagonalElements[i];
+                    _diagonalElements[i] = value;
+                    OnElementChanged(i, j, oldValue, value);
+                }
+            }
+        }
 
         public delegate void ElementChangedEventHandler(int row, int column, T oldValue, T newValue);
 
