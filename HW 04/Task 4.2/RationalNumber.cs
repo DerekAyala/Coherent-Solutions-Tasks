@@ -24,6 +24,10 @@ namespace Task_4._2
             }
         }
 
+        public RationalNumber(int numerator) : this(numerator, 1)
+        {
+        }
+
         public int Numerator
         {
             get { return _numerator; }
@@ -48,25 +52,30 @@ namespace Task_4._2
 
         public override bool Equals(object obj)
         {
-            if (obj == null || obj.GetType() != GetType())
+            if (obj == null || !(obj is RationalNumber))
             {
                 return false;
             }
 
-            RationalNumber other = (RationalNumber)obj;
-            return Numerator == other.Numerator && Denominator == other.Denominator;
+            RationalNumber other = obj as RationalNumber;
+
+            return Numerator == other?.Numerator && Denominator == other?.Denominator;
         }
+
 
         public int CompareTo(RationalNumber other)
         {
-            int thisNumber = Numerator * Denominator;
-            int otherNumber = other.Numerator * other.Denominator;
+            long thisNumerator = (long)Numerator * other.Denominator;
+            long otherNumerator = (long)other.Numerator * Denominator;
 
-            return thisNumber.CompareTo(otherNumber);
+            return thisNumerator.CompareTo(otherNumerator);
         }
 
         public static RationalNumber operator +(RationalNumber r1, RationalNumber r2)
         {
+            ArgumentNullException.ThrowIfNull(r1, nameof(r1));
+            ArgumentNullException.ThrowIfNull(r2, nameof(r2));
+
             int newNumerator = (r1.Numerator * r2.Denominator) + (r2.Numerator * r1.Denominator);
             int newDenominator = r1.Denominator * r2.Denominator;
 
@@ -75,6 +84,9 @@ namespace Task_4._2
 
         public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
         {
+            ArgumentNullException.ThrowIfNull(r1, nameof(r1));
+            ArgumentNullException.ThrowIfNull(r2, nameof(r2));
+
             int newNumerator = (r1.Numerator * r2.Denominator) - (r2.Numerator * r1.Denominator);
             int newDenominator = r1.Denominator * r2.Denominator;
 
@@ -83,6 +95,9 @@ namespace Task_4._2
 
         public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
         {
+            ArgumentNullException.ThrowIfNull(r1, nameof(r1));
+            ArgumentNullException.ThrowIfNull(r2, nameof(r2));
+
             int newNumerator = r1.Numerator * r2.Numerator;
             int newDenominator = r1.Denominator * r2.Denominator;
 
@@ -91,6 +106,13 @@ namespace Task_4._2
 
         public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
         {
+            ArgumentNullException.ThrowIfNull(r1, nameof(r1));
+            ArgumentNullException.ThrowIfNull(r2, nameof(r2));
+
+            if (r2.Numerator == 0)
+            {
+                throw new DivideByZeroException("Cannot divide by zero.");
+            }
             int newNumerator = r1.Numerator * r2.Denominator;
             int newDenominator = r1.Denominator * r2.Numerator;
 
