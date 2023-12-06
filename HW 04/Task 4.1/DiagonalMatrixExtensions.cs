@@ -1,8 +1,8 @@
 ﻿using System;
 namespace Task_4._1
 {
-	public static class DiagonalMatrixExtensions
-	{
+    public static class DiagonalMatrixExtensions
+    {
         public static DiagonalMatrix<T> Add<T>(this DiagonalMatrix<T> matrix1, DiagonalMatrix<T> matrix2, Func<T, T, T> additionFunction)
         {
             if (matrix1 == null || matrix2 == null)
