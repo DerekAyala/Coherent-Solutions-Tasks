@@ -3,11 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace Task_5._2
 {
-	public class Catalog
-	{
+    public class Catalog
+    {
         private List<Tuple<string, Book>> books;
         public Catalog()
-		{
+        {
             books = new List<Tuple<string, Book>>();
         }
 
